@@ -1,0 +1,105 @@
+<section class="container d-flex justify-content-center mt-3 my-3" dir="ltr">
+    <div class="col-md-8 px-5">
+      <div class="text-center mt-5">
+        <h3 class="text-second mb-4" style="color: orange; font-weight: 700;">Updata Course </h3>
+      </div>
+      <form [formGroup]="courseForm" (ngSubmit)="updateCourse()">
+        <!-- Title Field -->
+        <div class="row mt-5">
+          <div class="col">
+            <div class="form-group">
+              <label for="title">Title</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                <input formControlName="title" type="text" id="title" class="form-control"
+                       placeholder="enter title" [class.is-invalid]="courseForm.get('title')?.invalid && courseForm.get('title')?.touched">
+              </div>
+              <div *ngIf="courseForm.get('title')?.invalid && courseForm.get('title')?.touched" class="invalid-feedback">
+                title required 
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Description Field -->
+        <div class="row mt-3">
+          <div class="col">
+            <div class="form-group">
+              <label for="description">Description</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                <input formControlName="description" id="description" class="form-control"
+                       placeholder="enter description" [class.is-invalid]="courseForm.get('description')?.invalid && courseForm.get('description')?.touched">
+              </div>
+              <div *ngIf="courseForm.get('description')?.invalid && courseForm.get('description')?.touched" class="invalid-feedback">
+                description required.
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Is Free Checkbox -->
+        <div class="form-check mt-3">
+          <input formControlName="is_free" type="checkbox" class="form-check-input" id="isFree">
+          <label class="form-check-label" for="isFree">Free</label>
+        </div>
+  
+        <!-- Price Field -->
+        <div class="row mt-3" *ngIf="!courseForm.get('is_free')?.value">
+          <div class="col">
+            <div class="form-group">
+              <label for="price">Price</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                <input formControlName="price" type="number" id="price" class="form-control"
+                       placeholder="enter price" [class.is-invalid]="courseForm.get('price')?.invalid && courseForm.get('price')?.touched">
+              </div>
+              <div *ngIf="courseForm.get('price')?.invalid && courseForm.get('price')?.touched" class="invalid-feedback">
+                price required.
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Instructor ID -->
+        <div class="row mt-3">
+          <div class="col">
+            <div class="form-group">
+              <label for="instructor_id">Teacher</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                <input formControlName="instructor_id" type="text" id="instructor_id" class="form-control"
+                       placeholder="enter teacher " [class.is-invalid]="courseForm.get('instructor_id')?.invalid && courseForm.get('instructor_id')?.touched">
+              </div>
+              <div *ngIf="courseForm.get('instructor_id')?.invalid && courseForm.get('instructor_id')?.touched" class="invalid-feedback">
+                teacher required.
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Playlist ID -->
+        <div class="row mt-3">
+          <div class="col">
+            <div class="form-group">
+              <label for="playlist_id">Play List ID</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-list"></i></span>
+                <input formControlName="playlist_id" type="text" id="playlist_id" class="form-control"
+                       placeholder="" [class.is-invalid]="courseForm.get('playlist_id')?.invalid && courseForm.get('playlist_id')?.touched">
+              </div>
+              <div *ngIf="courseForm.get('playlist_id')?.invalid && courseForm.get('playlist_id')?.touched" class="invalid-feedback">
+                required.
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Submit Button -->
+        <div class="d-grid gap-3 text-center my-4">
+          <button class="btn main-btn rounded-5 custom-button" style="color: #ffff;" type="submit" [disabled]="courseForm.invalid">تعديل الدورة</button>
+        </div>
+      </form>
+    </div>
+  </section>
+  

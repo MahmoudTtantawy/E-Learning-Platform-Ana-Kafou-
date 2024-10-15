@@ -1,0 +1,38 @@
+<a [routerLink]="['/course', course.id]" class="card-link" >
+  <div class="card example-card position-relative " (mousemove)="handleMouseMove($event)" (mouseleave)="handleMouseLeave($event)" dir="ltr">
+      @if (course.thumbnail=="https://i.ytimg.com/img/no_thumbnail.jpg") {
+      <img class="thumbnail card-img" src="courseImage.png" alt="Course Image">
+
+      }@else {
+    <img [src]="course.thumbnail" alt="Sample Image" class="thumbnail card-img">
+      }
+    <div class="header-icon-container">
+      <a [routerLink]="['/course', course.id]">
+        <i class="material-icons header-icon"></i>
+      </a>
+    </div>
+    <div class="top-bottom-container ">
+      <!-- @if(isloggedIn) { -->
+        <div class="top flex flex-column gap-2 profile">
+          <img class="rounded-picture" [src]="teacherImage" alt="Profile Picture">
+          <span class="name">{{teacherName}}</span>
+        </div>
+    
+      <!-- } -->
+      <div class="bottom w-100 ">
+        <h6 class="description">{{ course.title }}</h6>
+        <div class="flex justify-content-between">
+            <div class="flex gap-1 mb-3 ms-3 position-absolute bottom-0 start-0">
+              <img src="boy.5g.svg" class="ms-4" alt="boy">
+              <span class="category">Entry Level</span>
+            </div>
+            <div class="d-flex flex-column align-items-center  gap-2 mb-3 me-2 position-absolute bottom-0 end-0" dir="rtl">
+              <img src="money.svg" class="me-1" alt="MoneyBadge">
+              <span class="price fs-6 text-secondary opacity-50"> {{ course.price == 0 ? 'مجاني' : '$ ' + course.price }}
+              </span>
+            </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</a>

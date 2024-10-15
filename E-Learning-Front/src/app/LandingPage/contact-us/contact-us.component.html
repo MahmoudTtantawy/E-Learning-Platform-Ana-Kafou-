@@ -1,0 +1,80 @@
+<section class="container d-flex flex-column gap-5 mb-5" dir="ltr">
+  <div class="text-center">
+    <h6 class="highlight-text ">Still confused?</h6>
+    <h3 class="section-title">We’ll answer all your questions here</h3>
+  </div>
+
+  <div class="d-flex flex-lg-row flex-column shadow1 justify-content-between contact-card" style="border-radius: 10px;">
+    <div class="col-lg-5 p-4 contact-info">
+      <h4 class="section-title">Got a question?</h4>
+      <h4 class="subtext">We welcome all your inquiries and are happy to assist in providing a smooth and advanced
+        learning environment.</h4>
+
+      <div class="d-flex btn-container gap-3 mt-5 mb-3">
+        <button target="_blank" class="custom-button nav-link px-5" data-bs-toggle="modal"
+          data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Contact Us</button>
+        <a href="mailto:elghorababdo@gmail.com?subject=More%20Questions%20Inquiry"
+          class="custom-button-2 nav-link px-4">More Questions</a>
+      </div>
+    </div>
+
+    <div class="col-lg-7 d-flex align-items-center card-input-section">
+      <img src="Vector-1.webp" alt="Contact Image" class="contact-img">
+      <div class="newsletter-section">
+        <h3 class="section-title">Subscribe to our Newsletter</h3>
+        <p class="subtext">Stay updated with all the latest news</p>
+        <form class="d-flex flex-column email-form" [formGroup]="subscriptionForm" (ngSubmit)="subscribe()">
+          <div class="input-group">
+            <input type="email" formControlName="email" class="email-input form-control" placeholder="Enter your email">
+            <div *ngIf="subscriptionForm.get('email')?.invalid && subscriptionForm.get('email')?.touched"
+              class="text-danger">
+              <small *ngIf="subscriptionForm.get('email')?.errors?.['required']">Email is required.</small>
+              <small *ngIf="subscriptionForm.get('email')?.errors?.['email']">Invalid email address.</small>
+            </div>
+            <button type="submit" class="subscribe-btn" [disabled]="!subscriptionForm.valid">Subscribe</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: none;"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">New E-mail to <span class="text-warning fw-bold">Ana
+              Kafou</span></h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="contactForm" (ngSubmit)="sendContactMessage()">
+            <div class="mb-3">
+              <label for="contactEmail" class="col-form-label">Email:</label>
+              <input type="email" class="form-control" id="contactEmail" formControlName="contactEmail">
+              <div *ngIf="contactForm.get('contactEmail')?.invalid && contactForm.get('contactEmail')?.touched"
+                class="text-danger">
+                <small *ngIf="contactForm.get('contactEmail')?.errors?.['required']">Email is required.</small>
+                <small *ngIf="contactForm.get('contactEmail')?.errors?.['email']">Invalid email address.</small>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="message" class="col-form-label">Message:</label>
+              <textarea class="form-control" id="message" formControlName="message"></textarea>
+              <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"
+                class="text-danger">
+                <small *ngIf="contactForm.get('message')?.errors?.['required']">Message is required.</small>
+                <small *ngIf="contactForm.get('message')?.errors?.['minlength']">Message must be at least 10 characters
+                  long.</small>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-close-white" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn custom-button" [disabled]="!contactForm.valid">Send message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,84 @@
+<div class="container mt-5" >
+    <h4 class="mb-4 text-center name-card text-dark fw-bold">{{title}}</h4>
+
+    <form [formGroup]="testForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            @for(question of questions; track $index) {
+            <div class="col-md-12 mb-3">
+                <div class="card shadow-lg border-0 transition-card"
+                    style="border-radius: 10px; background-color: #f8f9fa;">
+                    <div class="card-header exam-card text-white fw-bold">
+                        <h5 class="mb-0" dir="ltr">
+                            <span class="badge  bg-light text-primary mt-2 me-2"  >{{ $index + 1 }}</span>
+                           <span class="fs-4"> {{ question.question_text }}</span>
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div class="form-check p-3 shadow-sm rounded transition-answer"
+                                    style="background-color: #e9ecef;" (click)="getAnswer($event)">
+                                    @if (role_id === 3) {
+                                    <input class="form-check-input custom-radio" type="radio"
+                                        (change)="getAnswer($event)" name="{{$index}}" id="option1_{{ $index }}"
+                                        value="{{question.answers1.id }}" required />
+                                    }
+                                    <label class="form-check-label" for="option1_{{ $index }}" style="font-size: 1rem;" >
+                                        {{question.answers1.answer_text }}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="form-check p-3 shadow-sm rounded transition-answer"
+                                    style="background-color: #e9ecef;" (click)="getAnswer($event)">
+                                    @if (role_id === 3) {
+                                    <input class="form-check-input custom-radio" type="radio"
+                                        (change)="getAnswer($event)" name="{{$index}}" id="option2_{{ $index }}"
+                                        value="{{question.answers2.id }}" required />
+                                    }
+                                    <label class="form-check-label" for="option2_{{ $index }}" style="font-size: 1rem;">
+                                        {{question.answers2.answer_text }}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="form-check p-3 shadow-sm rounded transition-answer"
+                                    style="background-color: #e9ecef;" (click)="getAnswer($event)">
+                                    @if (role_id === 3) {
+                                    <input class="form-check-input custom-radio" type="radio"
+                                        (change)="getAnswer($event)" name="{{$index}}" id="option3_{{ $index }}"
+                                        value="{{question.answers3.id }}" required />
+                                    }
+                                    <label class="form-check-label" for="option3_{{ $index }}" style="font-size: 1rem;">
+                                        {{question.answers3.answer_text }}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="form-check p-3 shadow-sm rounded transition-answer"
+                                    style="background-color: #e9ecef;" (click)="getAnswer($event)">
+                                    @if (role_id === 3) {
+                                    <input class="form-check-input custom-radio" type="radio"
+                                        (change)="getAnswer($event)" name="{{$index}}" id="option4_{{ $index }}"
+                                        value="{{question.answers4.id }}" required />
+                                    }
+                                    <label class="form-check-label" for="option4_{{ $index }}" style="font-size: 1rem;">
+                                        {{question.answers4.answer_text }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+        @if (role_id === 3) {
+        <div class="text-center">
+            <button type="submit" (click)="getResults()" class="btn btn-lg btn-success shadow-sm px-5 fw-bold transition-btn ">
+                Submit Exam
+            </button>
+        </div>
+        }
+    </form>
+</div>

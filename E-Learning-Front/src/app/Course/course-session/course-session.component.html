@@ -1,0 +1,97 @@
+<div class="title">
+  <h3 class="text-center  text-light">{{ courseTitle }}</h3>
+</div>
+<div class="conatainer d-flex align-items-between" dir="ltr">
+ <div class="col-lg-9 col-md-12 col-sm-12 container text-start  ">
+      <h3 class="text-start mt-2">{{videoTitle}}</h3>
+    <iframe
+      width="100%"
+      height="75%"
+      [src]="sanitizedUrl"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+        <div class="card mt-3" dir="ltr">
+          <div class="row g-0">
+            <div class="col">
+              <div class="card-body">
+                <h3 class="card-title ms-2">Course Description</h3>
+                <p class="card-text ms-5 text-secondary col-11">
+                  {{courseDescription}}
+                </p>
+                <p class="card-text text-end text-secondary text-lighter">
+                  <small class="text-muted opacity-50">Last updated: {{courseCreation}} </small>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+
+  <div class="col-lg-3 col-md-12 col-sm-12 ">
+    <div class="card h-100 mt-5">
+      <h5 class="card-header d-flex justify-content-between align-items-center">
+        <div>
+          <i class="fa-solid fa-list-alt"></i>
+          Course Outline
+        </div>
+        <span class="ms-auto fs-6 text-secondary fw-lighter">Created At: {{ courseCreation }}</span>
+      </h5>
+    <div
+      class="accordion p-0 m-0"
+      style="max-height:44rem; overflow-y: auto"
+      id="accordionExample"
+    >
+      @if(courseVideos){ @for(video of courseVideos; track video.id){
+      <div class="accordion mt-2 mx-2" id="accordionPanelsStayOpenExample">
+        <div class="accordion-item">
+          <h2
+            class="accordion-header my-1"
+            id="panelsStayOpen-heading-{{ video.id }}"
+          >
+            <button
+              class="accordion-button collapsed px-2 py-0 m-0"
+              type="button"
+              data-bs-toggle="collapse"
+              [attr.data-bs-target]="'#panelsStayOpen-collapse-' + video.id"
+              aria-expanded="false"
+              [attr.aria-controls]="'panelsStayOpen-collapse-' + video.id"
+            >
+              {{ truncate.transform(video.title,50) }}
+            </button>
+          </h2>
+          <div
+            id="panelsStayOpen-collapse-{{ video.id }}"
+            class="accordion-collapse collapse"
+            [attr.aria-labelledby]="'panelsStayOpen-heading-' + video.id"
+          >
+            <div class="accordion-body">
+              @if(enrollment==true){
+              <!-- {{ truncate.transform(this.video.description, 20  background: linear-gradient(
+      90deg,
+      var(--wave1, #007bff),
+      var(--wave2, #00ccff) 51%,
+      var(--wave1, rgb(0 107 179))
+    );0) }} -->
+              <div class="d-flex align-items-center  text-start p-0 my-0 ">
+                <i class="fa-regular fa-circle-play fs-4 text-danger"></i>
+
+                <code class="ms-2 text-start text-danger py-0 my-0"><a [routerLink]="['/course-session',id,video.id]"
+                    (click)="changeVideo(video.video_id)"
+
+                    style="text-decoration: none; color: black"
+                    >Watch Now</a>
+                </code>
+              </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+      } }
+    </div>
+    </div>
+  </div>
+</div>

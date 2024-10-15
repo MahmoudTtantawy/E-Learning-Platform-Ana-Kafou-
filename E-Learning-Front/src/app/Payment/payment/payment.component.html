@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-lg-7 col-md-12">
+    <div class="image-container">
+      <img src="Payment.gif" alt="Payment Image" class="img-fluid payment-img">
+    </div>
+  </div>
+
+  <div class="col-lg-4 col-md-12">
+    <div class="form-container">
+      <h2 class="text-center">Pay Now</h2>
+      <div class="mb-3">
+        <input type="text" class="form-control" id="name" placeholder="Card holder's name">
+      </div>
+
+      <!-- Payment Card Input -->
+      <div id="card-element" class="form-control mb-3" style="height: 2.5rem;"></div>
+
+      <!-- Payment Button -->
+      <button class="main-btn btn-block" (click)="pay()" style="width: 100%;">Pay</button>
+
+      @if(message){
+      <div class="alert alert-success mt-3" role="alert">
+        {{ message }}
+      </div>
+      }
+      @if(error){
+      <div class="alert alert-danger mt-3" role="alert">
+        {{ error }}
+      </div>
+      }
+    </div>
+  </div>
+</div>

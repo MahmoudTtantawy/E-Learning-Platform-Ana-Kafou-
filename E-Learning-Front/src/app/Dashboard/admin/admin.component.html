@@ -1,0 +1,217 @@
+
+<div class="main-container">
+  <div class="content-area" style="margin-right: 15%;">
+    <div class="col-12 offset-1" dir="rtl">
+      @if (role_id === 1) {
+        <div class="row mt-5 gap-3 p-3">
+          <div class="col-lg-3 col-5">
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h4>الطلاب</h4>
+              </div>
+              <div class="icon">
+                <i class="fa-solid fa-user"></i>
+              </div>
+              <a routerLink="/admin/user-managment" class="small-box-footer ">
+                تفاصيل  أكثر  <i class="fas fa-arrow-circle-right "></i></a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-5">
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <!-- <h3>20</h3> -->
+                <h4>المعلمين</h4>
+              </div>
+              <div class="icon">
+                <i class="fa-solid fa-user"></i>
+              </div>
+              <a routerLink="/allorganizer" class="small-box-footer">
+                تفاصيل  أكثر  <i class="fas fa-arrow-circle-right"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-5">
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <!-- <h3>5</h3>  -->
+                <h4>المدفوعات</h4>
+              </div>
+              <div class="icon">
+                <i class="fas fa-dollar-sign"></i>
+              </div>
+              <a routerLink="/admin/payment" class="small-box-footer">
+                تفاصيل  أكثر   <i class="fas fa-arrow-circle-right"></i
+              ></a>
+            </div>
+          </div>
+        </div>`
+      }
+     
+
+      <div class="row mt-5 gap-3 p-3">
+       @if(role_id === 1){
+        <div class="col-lg-3 col-6">
+          <div routerLink="/admin/courses" class="small-box bg-danger">
+            <div class="inner">
+              <!-- <h3>10</h3>  -->
+              <h4>الكورسات المسجله</h4>
+            </div>
+            <div class="icon">
+              <i class="fas fa-play-circle"></i>
+            </div>
+            <a routerLink="/admin/courses" class="small-box-footer">
+              تفاصيل  أكثر  <i class="fas fa-arrow-circle-right"></i
+            ></a>
+          </div>
+        </div>
+       }@else if(role_id === 4) {
+        <div class="col-lg-3 col-6">
+          <div routerLink="/courses" class="small-box bg-danger">
+            <div class="inner">
+              <!-- <h3>10</h3>  -->
+              <h4>الكورسات المسجله</h4>
+            </div>
+            <div class="icon">
+              <i class="fas fa-play-circle"></i>
+            </div>
+            <a routerLink="/courses" class="small-box-footer">
+              تفاصيل  أكثر  <i class="fas fa-arrow-circle-right"></i
+            ></a>
+          </div>
+        </div>
+       }
+        <div class="col-lg-3 col-6">
+          <div class="small-box bg-danger">
+            <div class="inner">
+              <!-- <h3>5</h3>  -->
+              <h4>اختبارات القدرات</h4>
+            </div>
+            <div class="icon">
+              <i class="fas fa-check"></i>
+            </div>
+            <a routerLink="/tests" class="small-box-footer">
+              تفاصيل  أكثر   <i class="fas fa-arrow-circle-right"></i
+            ></a>
+          </div>
+        </div>
+       
+        <div class="col-lg-3 col-6">
+          <div class="small-box bg-danger">
+            <div class="inner">
+              <!-- <h3>10</h3> -->
+              <h4>الكورسات المباشرة</h4>
+            </div>
+            <div class="icon">
+              <i class="fas fa-video"></i>
+            </div>
+            <a href="" class="small-box-footer">
+              تفاصيل  أكثر   <i class="fas fa-arrow-circle-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div
+    class="sidebar"
+    style="position: fixed; margin-top: 4%; right: 0"
+    dir="rtl"
+  >
+    <div class="sidebar-logo">
+      <a class="sidebar-brand">وحدة التحكم</a>
+    </div>
+    <div class="sidebar-wrapper accordion" id="sidebarAccordion" dir="rtl">
+      <ul class="nav">
+        @if (role_id === 1) {
+          <li class="side-item">
+            <a
+              href="#collapseTeachers"
+              class="nav-link"
+              data-bs-toggle="collapse"
+              aria-expanded="false"
+              aria-controls="collapseTeachers"
+            >
+              <p><i class="fas fa-user ms-2"></i>المعلمين</p>
+            </a>
+            <div
+              id="collapseTeachers"
+              class="collapse"
+              data-bs-parent="#sidebarAccordion"
+            >
+              <ul class="nav-collapse">
+                <li><a routerLink="/createorganizer"> - أضافة معلم</a></li>
+              </ul>
+            </div>
+          </li>
+        }
+   
+        <li class="side-item">
+          <a
+            href="#collapseExams"
+            class="nav-link"
+            data-bs-toggle="collapse"
+            aria-expanded="false"
+            aria-controls="collapseExams"
+          >
+            <p><i class="fas fa-th-list ms-2"></i>الأختبارات</p>
+          </a>
+          <div
+            id="collapseExams"
+            class="collapse"
+            data-bs-parent="#sidebarAccordion"
+          >
+            <ul class="nav-collapse">
+              <li><a routerLink="/test-create"> - أضافة اختبار</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="side-item">
+          <a
+            href="#collapseLiveCourses"
+            class="nav-link"
+            data-bs-toggle="collapse"
+            aria-expanded="false"
+            aria-controls="collapseLiveCourses"
+          >
+            <p><i class="fas fa-video ms-2"></i>الكورسات المباشرة</p>
+          </a>
+          <div
+            id="collapseLiveCourses"
+            class="collapse"
+            data-bs-parent="#sidebarAccordion"
+          >
+            <ul class="nav-collapse">
+              <li><a href="#">- أضافة كورس</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="side-item">
+          <a
+            href="#collapseRecordedCourses"
+            class="nav-link"
+            data-bs-toggle="collapse"
+            aria-expanded="false"
+            aria-controls="collapseRecordedCourses"
+          >
+            <p><i class="fas fa-play-circle ms-2"></i>الكورسات المسجلة</p>
+          </a>
+          <div
+            id="collapseRecordedCourses"
+            class="collapse"
+            data-bs-parent="#sidebarAccordion"
+          >
+            <ul class="nav-collapse">
+              <li><a routerLink="/coursecreate"> - أضافة كورس مسجل</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  
+ 
+  </div>
+</div>

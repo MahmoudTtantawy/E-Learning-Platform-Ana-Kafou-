@@ -1,0 +1,18 @@
+<div class="w-100 d-flex align-items-start parent fw-bold gap-3">
+<div class="card-container">
+      <h1 class="m-5 font-24-bold text-center">All Courses</h1>
+
+  <div class="d-flex flex-wrap justify-content-center  gap-3">
+    @if(courses){
+      @for(course of courses;track $index){
+        <app-card [course]="course"></app-card>
+      }
+    }@else {
+      <div class="d-flex justify-content-center align-items-center w-100">
+        <h1>No Courses Found</h1>
+      </div>
+    }
+</div>
+</div>
+</div>
+

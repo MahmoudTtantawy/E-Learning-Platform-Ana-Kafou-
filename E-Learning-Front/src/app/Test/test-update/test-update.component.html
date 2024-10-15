@@ -1,0 +1,53 @@
+<div class="container mt-5">
+    <div class="card  " style="border-radius: 20px  ;">
+        <div class="card-title text-center text-white bg-dark" style="border-radius: 20px 20px 0 0 ;">
+            <h3> انشاء امتحان</h3>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+                <div class="row mb-3">
+                    <label for="title" class="form-label">العنوان <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-solid fa-user"></i></span>
+                        <input type="text" id="title" class="form-control" placeholder="الاسم مطلوب"
+                            formControlName="title">
+                    </div>
+                    <div *ngIf="f['title'].invalid && (f['title'].dirty || f['title'].touched)" class="text-danger">
+                        <small *ngIf="f['title'].errors?.['required']">العنوان مطلوب.</small>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="description" class="form-label">العنوان <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-solid fa-user"></i></span>
+                        <input type="text" id="description"  class="form-control" placeholder="الاسم مطلوب"
+                            formControlName="description">
+                    </div>
+                    <div *ngIf="f['description'].invalid && (f['description'].dirty || f['description'].touched)"
+                        class="text-danger">
+                        <small *ngIf="f['description'].errors?.['required']">الوصف مطلوب.</small>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="is_free" class="form-label">النوع <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                        <select id="is_free" class="form-select" name="is_free" formControlName="is_free">
+                            <option value="" disabled selected>اختر الفئه</option>
+                            <option value="1">مجاني</option>
+                            <option value="0">اشتراك</option>
+                        </select>
+                    </div>
+                    <div *ngIf="f['is_free'].invalid && (f['is_free'].dirty || f['is_free'].touched)"
+                        class="text-danger">
+                        <small *ngIf="f['is_free'].errors?.['required']">النوع مطلوب.</small>
+                    </div>
+                </div>
+                
+
+
+                <button type="submit" class="btn btn-primary px-5">انشاء</button>
+            </form>
+        </div>
+    </div>
+</div>

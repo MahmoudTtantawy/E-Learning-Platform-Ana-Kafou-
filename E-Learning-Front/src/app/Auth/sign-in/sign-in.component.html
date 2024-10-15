@@ -1,0 +1,64 @@
+<section class="container d-flex justify-content-center mt-3 my-3 fw-bold" dir="ltr">
+  <div class="col-md-8 px-5">
+    <div class="text-center mt-5">
+      <h2 class="text-second mb-4" style="color: rgb(255, 166, 0); font-weight: 700;">Welcome Back
+      </h2>
+     
+    </div>
+        @if (message) {
+          <small >{{message}}</small>
+
+        }
+    <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+      <div class="row mt-5">
+        <div class="col">
+          <div class="form-group">
+            <label   for="email">Email Address</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+              <input type="email" [(ngModel)]="loginObj.email" name="email" formControlName="email" id="email"
+                class="form-control" placeholder="Email" aria-label="Email Address" required>
+            </div>
+            <div *ngIf="formControls['email'].touched && formControls['email'].invalid" class="text-danger">
+              <small *ngIf="formControls['email'].errors?.['required']">Email is required.</small>
+              <small *ngIf="formControls['email'].errors?.['email']">Email is not valid.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col">
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-lock"></i></span>
+              <input [type]="passwordFieldType" [(ngModel)]="loginObj.password" name="password"
+                formControlName="password" id="password" class="form-control" placeholder="Password"
+                aria-label="Password" required>
+              <span class="input-group-text" (click)="togglePasswordVisibility()" style="cursor: pointer;">
+                <i [class]="eyeIcon"></i>
+              </span>
+            </div>
+            <div *ngIf="formControls['password'].touched && formControls['password'].invalid" class="text-danger">
+              <small *ngIf="formControls['password'].errors?.['required']">Password is required.</small>
+              <small *ngIf="formControls['password'].errors?.['minlength']">
+                Password must be at least 6 characters long.
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-grid gap-3 text-center my-4">
+        <button class="btn main-btn rounded-5 custom-button" style="color: #ffff;" (click)="Login()" type="submit">Login</button>
+        <p class="text-muted">Don't have an account?
+          <a routerLink="/studentSignup" class="text-second text-decoration-none" style="color: orange;">Create new account</a>
+        </p>
+        <p class="text-muted">Forgot your password?
+          <a routerLink="/forgetPassword" class="text-second text-decoration-none" style="color: orange;">Reset password</a>
+        </p>
+      </div>
+    </form>
+  </div>
+</section>

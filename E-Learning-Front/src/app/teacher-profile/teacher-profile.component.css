@@ -1,0 +1,158 @@
+
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.profile-img:hover {
+  transform: scale(1.1);
+}
+
+/* Heading Styles */
+h3 {
+  font-weight: 600;
+}
+
+h4 {
+  font-weight: bold;
+  color: #333;
+}
+.main-btn {
+    padding: 0.4rem 1rem;
+    color: white;
+    background: linear-gradient(
+        90deg,
+        var(--wave1, #007bff ),
+        var(--wave2,#00ccff ) 51%,
+        var(--wave1,  rgb(0 107 179))
+      )
+      var(--x, 0) / 200%;
+    scale: 1;
+    transition: 0.4s;
+  }
+
+
+  .main-btn:hover {
+    scale: 0.995;
+    --x: 100%;
+  }
+
+h5 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ff8c00;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  font-size: 1rem;
+  color: #666;
+}
+
+@keyframes fadeInLeft {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate__animated.animate__fadeInLeft {
+  animation: fadeInLeft 0.5s ease-in;
+}
+
+.animate__animated.animate__fadeInRight {
+  animation: fadeInRight 0.5s ease-in;
+}
+
+.contact-btn {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.section-title {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.about-card {
+  margin-top: 20px;
+  background-color: white;
+  padding: 25px;
+  border-radius: 15px;
+}
+
+
+a {
+	text-decoration: none;
+	color: #999;
+}
+
+[class*="entypo-"]:before {
+	font-family: 'entypo', sans-serif;
+}
+
+[class*="entypo-"] {
+	width: 1em;
+	height: 1em;
+}
+
+a:hover {
+	color: #777;
+}
+
+.background {
+	background: url('http://one-div.com/codepen/bg.jpg') no-repeat;
+
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	text-align: center;
+}
+
+.background:before {
+	content: "";
+	height: 100%;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+
+h1 a {
+	color: #4083A9;
+	font-weight: bold;
+	font-size: 1.4em;
+}
+
+h1 a:hover {
+	color: #205F82;
+}

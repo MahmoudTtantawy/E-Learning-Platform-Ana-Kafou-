@@ -1,0 +1,17 @@
+.title
+{
+margin-bottom: 20px !important;
+  /* height: 7rem; */
+  /* background: linear-gradient(
+      90deg,
+      var(--wave1, #007bff),
+      var(--wave2, #00ccff) 51%,
+      var(--wave1, rgb(0 107 179))
+    ); */
+      background: linear-gradient(45deg, #e65c00, #ffab00);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* opacity: 50%; */
+}

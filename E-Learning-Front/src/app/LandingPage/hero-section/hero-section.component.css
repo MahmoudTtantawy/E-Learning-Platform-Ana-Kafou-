@@ -1,0 +1,142 @@
+.hero {
+  min-height: calc(85dvh);
+}
+.main-btn {
+  padding: 0.4rem 1rem;
+  color: var(--bg);
+  background: linear-gradient(45deg, #02448b, #00ccff);
+  scale: 1;
+  transition: 0.4s;
+}
+.main-btn:hover {
+  scale: 0.995;
+  --x: 100%;
+}
+.lh-base {
+  text-align: end;
+  text-justify: inter-word;
+}
+button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: start;
+  text-decoration: none;
+  border: none;
+  color: white !important;
+  position: absolute;
+  left: 0;
+}
+button span:first-child {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  border-radius: 50%;
+  background-color: var(--bg);
+  text-align: center;
+  line-height: 30px;
+  margin-right: 5px;
+  box-shadow: 3px 3px 6px var(--border1);
+}
+button div svg {
+  position: absolute;
+  top: 50%;
+  right: 3%;
+  transform: translate(-50%, -50%);
+  background-color: whitesmoke;
+  border-radius:50%;
+  color: linear-gradient(
+      90deg,
+      var(--wave1, #007bff ),
+      var(--wave2,#00ccff ) 51%,
+      var(--wave1,  rgb(0 107 179))
+    ) !important;
+}
+
+
+.image {
+  position: relative;
+  width: 100%;
+  transform: scaleX(-1);
+}
+
+.image img {
+  position: absolute;
+  top: -4dvw;
+  right: 4dvw;
+  transform: translateX(8%);
+  z-index: 1;
+  width: 100%;
+}
+
+.text {
+  position: relative;
+  letter-spacing: 0.5px;
+
+}
+
+.shape {
+  position: relative;
+  width: 70px;
+  color: #fda085!important;
+}
+
+.shape svg {
+  position: absolute;
+  top: -5rem;
+  left: 0;
+  transform: translate(150%, -50%);
+  opacity: 0.3;
+}
+
+.svg-1 {
+  min-height: 69.25dvh;
+  width: 100%;
+}
+
+.shape2 {
+  position: relative;
+  width: 150px;
+}
+
+.shape2 svg {
+  position: absolute;
+  top: 65%;
+  right: 0;
+  width: 75px;
+  transform: translate(-50%, 20%);
+  opacity: 0.5;
+}
+
+.flipped {
+  flex-direction: row-reverse;
+}
+
+.flipped > span:first-child {
+  margin-right: 16px;
+}
+
+@media (max-width: 990px) {
+  .flex {
+    flex-direction: column;
+  }
+
+ .shape2{
+display: none;
+  }
+}
+@media (max-width: 476) {
+  .img-fluid {
+ display: none;
+  }
+  button{
+    max-width: 50px !important;
+  }
+  .insmall{
+    width: 100% !important;
+  }
+  .shape3{
+    display: none !important;
+  }
+
+}

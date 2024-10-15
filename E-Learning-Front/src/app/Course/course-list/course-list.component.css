@@ -1,0 +1,17 @@
+.card-container div,
+.card-container {
+  width: 100%;
+  min-height: calc(405px + 405px + 1rem);
+}
+h1 {
+    color: #f5a623;
+    font-weight: bold;
+}
+
+@media (max-width: 920px) {
+  .parent {
+    flex-direction: column;
+    margin-top: 50% !important;
+  }
+
+}

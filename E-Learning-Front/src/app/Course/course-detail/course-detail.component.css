@@ -1,0 +1,88 @@
+
+.title {
+  margin-bottom: 1.5rem;
+
+}
+
+.card {
+  margin-bottom: 2rem;
+}
+.accordion {
+  padding: 0px !important;
+  margin: 0px !important;
+}
+img.card-img{
+height: 31rem;
+}
+
+.teacherimg {
+  max-width: 100%;
+  border-radius: 50%;
+}
+
+.comment-form .form-control {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+}
+.enroll:hover{
+  color: white !important;
+}
+
+
+.comment-form .form-control:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 5px rg
+  (0, 123, 255, 0.25);
+}
+
+.comment-form .btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+.comment-img {
+  width: 80px;
+  height: 80px;
+}
+
+.lineThrow {
+  text-decoration: line-through;
+}
+
+.accordion-item {
+  margin-bottom: 0.1rem;
+  height: .5% !important;
+}
+
+@media only screen and (max-width: 576px) {
+  .teacherimg {
+    width: 100%;
+  }
+
+  .comment-img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .accordion-button {
+    font-size: 0.9rem;
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+  .teacherimg {
+    width: 80%;
+  }
+
+  .comment-img {
+    width: 70px;
+    height: 70px;
+  }
+}

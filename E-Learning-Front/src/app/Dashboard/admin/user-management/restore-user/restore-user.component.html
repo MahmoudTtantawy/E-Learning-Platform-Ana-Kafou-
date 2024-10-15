@@ -1,0 +1,49 @@
+<div class="main" dir="ltr">
+    <div class="row">
+        <div class=" col-md-12 mx-auto ">
+            <div class="panel">
+                <div class="panel-body table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>national_ID</th>
+                                <th>Gender</th>
+                                <th> Phone</th>
+                                <th>Address</th>
+                                <th>Image</th>
+                                <th>Restore</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           @for (user of users; track user.id) { 
+                            <tr>
+                                <td>{{user.name}}</td>
+                                <td>{{user.email}}</td>
+                                <td>{{user.national_id}}</td>
+                                <td>{{user.gender}}</td>
+                                <td>{{user.phone}}</td>
+                                <td>{{user.address}}</td>
+                                <td>
+                                    <img [src]="user.image" alt="Image" width="100" height="100">
+                                </td>
+                                <td>
+                                    <ul class="action-list">
+                                        <button (click)="restoreUser(user.id)" class="btn btn-link" title="Restore">
+                                            <i class="fas fa-undo"></i>
+                                          </button>                          
+                                    </ul>
+                                </td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                    <div class="d-flex justify-content-between mt-3">
+                        <button routerLink="/admin/user-managment" class="btn main-btn rounded-5 bt-sm custom-button w-25 ">Back </button>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    

@@ -1,0 +1,177 @@
+.container {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .highlight-text {
+    color: #ff9800;
+    font-weight: bold;
+    font-size: 1.6rem;
+  }
+  
+  .section-title {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .subtext {
+    opacity: 0.75;
+    font-size: 1.1rem;
+    line-height: 25px;
+  }
+  
+  .contact-card {
+    transition: transform 0.5s, box-shadow 0.5s;
+  }
+  
+  .contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-input-section {
+    background-color: #f7f7f7;
+    padding: 2rem;
+    border-radius: 10px;
+    transition: background-color 0.5s;
+  }
+  
+  .card-input-section:hover {
+    background-color: #fff;
+  }
+  
+  .contact-img {
+    max-width: 50%;
+    margin-right: 2rem;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .newsletter-section {
+    max-width: 100%;
+  }
+  
+  .email-form {
+    width: 100%;
+  }
+  
+  .input-group {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .email-input {
+    border: 1px solid #ccc;
+    padding: 0.75rem;
+    border-radius: 30px;
+    width: 100%;
+    transition: border-color 0.3s ease;
+  }
+  
+  .email-input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  .subscribe-btn {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 0.75rem 2rem;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .subscribe-btn:hover {
+    background-color: #e68900;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Buttons */
+  .custom-button, .custom-button-2 {
+    border-radius: 30px;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .custom-button {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .custom-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .custom-button-2 {
+    background-color: transparent;
+    color: #007bff;
+    border: 2px solid #007bff;
+  }
+  
+  .custom-button-2:hover {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .contact-img {
+    animation: fadeIn 1s ease;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 992px) {
+    .contact-img {
+      max-width: 40%;
+    }
+  
+    .input-group {
+      flex-direction: column;
+    }
+  
+    .email-input {
+      margin-bottom: 1rem;
+    }
+  
+    .card-input-section {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .contact-img {
+      display: none;
+    }
+  
+    .card-input-section {
+      justify-content: center;
+    }
+  
+    .newsletter-section h3, .newsletter-section p {
+      text-align: center;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .subscribe-btn {
+      width: 100%;
+    }
+  
+    .email-input {
+      width: 100%;
+    }
+  }
+  

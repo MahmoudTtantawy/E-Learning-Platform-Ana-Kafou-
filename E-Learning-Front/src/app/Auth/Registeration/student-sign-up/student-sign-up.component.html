@@ -1,0 +1,139 @@
+<div class="container mt-3 my-3 fw-bold" dir="ltr">
+  <div class="form-container">
+    <h1 class="mb-6 text-warning fw-bold  text-center">Welcome..!</h1>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+      <div class="row mb-3">
+        <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="fas fa-solid fa-user"></i></span>
+          <input type="text" id="name" class="form-control" placeholder="Name is required" formControlName="name">
+        </div>
+        <div *ngIf="f['name'].invalid && (f['name'].dirty || f['name'].touched)" class="text-danger">
+          <small *ngIf="f['name'].errors?.['required']">Name is required.</small>
+          <small *ngIf="f['name'].errors?.['pattern']">Name must contain letters only.</small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email Address <span class="text-danger">*</span></label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+          <input type="email" id="email" class="form-control" placeholder="Enter your email" formControlName="email">
+        </div>
+        <div *ngIf="f['email'].invalid && (f['email'].dirty || f['email'].touched)" class="text-danger">
+          <small *ngIf="f['email'].errors?.['required']">Email is required.</small>
+          <small *ngIf="f['email'].errors?.['email']">Email is not valid.</small>
+        </div>
+        <div *ngIf="f['email'].errors?.['unique']" class="text-danger">
+          {{ f['email'].errors?.['unique'] }}
+        </div>
+      </div>
+      
+      <div class="mb-3">
+        <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="fas fa-lock"></i></span>
+          <input [type]="passwordFieldType" id="password" class="form-control" placeholder="Password is required" formControlName="password">
+          <span class="input-group-text" (click)="togglePasswordVisibility()" style="cursor: pointer;">
+            <i [class]="eyeIcon"></i>
+          </span>
+        </div>
+        <div *ngIf="f['password'].invalid && (f['password'].dirty || f['password'].touched)" class="text-danger">
+          <small *ngIf="f['password'].errors?.['required']">Password is required.</small>
+          <small *ngIf="f['password'].errors?.['minlength']">Password must be at least 6 characters long.</small>
+          <small *ngIf="f['password'].errors?.['pattern']">Password must contain an uppercase letter, a lowercase letter, a number, and a special character.</small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="password_confirmation" class="form-label">Confirm Password <span class="text-danger">*</span></label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="fas fa-lock"></i></span>
+          <input [type]="confirmPasswordFieldType" id="password_confirmation" class="form-control" placeholder="Enter password confirmation" formControlName="password_confirmation">
+          <span class="input-group-text" (click)="toggleConfirmPasswordVisibility()" style="cursor: pointer;">
+            <i [class]="confirmEyeIcon"></i>
+          </span>
+        </div>
+        <div *ngIf="registerForm.errors?.['passwordMismatch'] && (f['password_confirmation'].dirty || f['password_confirmation'].touched)" class="text-danger">
+          <small>Passwords do not match.</small>
+        </div>
+      </div>
+      
+      <div class="mb-3">
+        <label for="national_id" class="form-label">National ID <span class="text-danger">*</span></label>
+        <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+            <input type="text" id="national_id" class="form-control" placeholder="Enter National ID" formControlName="national_id">
+        </div>
+        <div *ngIf="f['national_id'].invalid && (f['national_id'].dirty || f['national_id'].touched)" class="text-danger">
+            <small *ngIf="f['national_id'].errors?.['required']">National ID is required.</small>
+            <small *ngIf="f['national_id'].errors?.['pattern']">National ID is not valid.</small>
+        </div>
+        <div *ngIf="f['national_id'].errors?.['unique']" class="text-danger">
+          {{ f['national_id'].errors?.['unique'] }}
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="gender" class="form-label">Gender <span class="text-danger">*</span></label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="fas fa-venus-mars"></i></span>
+          <select id="gender" class="form-select" name="gender" formControlName="gender">
+            <option value="" disabled selected>Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+        <div *ngIf="f['gender'].invalid && (f['gender'].dirty || f['gender'].touched)" class="text-danger">
+          <small *ngIf="f['gender'].errors?.['required']">Gender is required.</small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="address" class="form-label">Detailed Address <span class="text-danger">*</span></label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+          <input type="text" id="address" class="form-control" name="address" placeholder="Enter Detailed Address"
+            formControlName="address">
+        </div>
+        <div *ngIf="f['address'].invalid && (f['address'].dirty || f['address'].touched)" class="text-danger">
+          <small *ngIf="f['address'].errors?.['required']">Address is required.</small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone Number <span class="text-danger">*</span></label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="fas fa-phone"></i></span>
+          <input type="text" id="phone" name="phone" class="form-control" placeholder="Enter Phone Number"
+            formControlName="phone">
+        </div>
+        <div *ngIf="f['phone'].invalid && (f['phone'].dirty || f['phone'].touched)" class="text-danger">
+          <small *ngIf="f['phone'].errors?.['required']">Phone number is required.</small>
+          <small *ngIf="f['phone'].errors?.['pattern']">Phone number is not valid.</small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="image" class="form-label">
+          Upload Image <span class="text-danger">*</span>
+        </label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="fas fa-image"></i></span>
+          <input type="file" id="image" formControlName="image" class="form-control" (change)="onFileChange($event)" />
+        </div>
+        <div *ngIf="f['image'].invalid && (f['image'].dirty || f['image'].touched)" class="text-danger">
+          <small *ngIf="f['image'].errors?.['required']">Image is required.</small>
+          <small *ngIf="f['image'].errors?.['pattern']">Please upload a valid image (PNG, JPG, JPEG).</small>
+        </div>
+      </div>
+
+      <button type="submit" class="btn main-btn rounded-5 custom-button w-100">Create Account</button>
+    </form>
+
+    <div class="text-center mt-3">
+      <p class="text-muted">Already using account? <a routerLink="/signin">Sign in </a></p>
+    </div>
+  </div>
+</div>

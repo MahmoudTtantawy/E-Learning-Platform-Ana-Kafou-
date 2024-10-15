@@ -1,0 +1,32 @@
+<div class="main" dir="ltr">
+    <div class="row">
+        <div class=" col-md-12 mx-auto ">
+            <div class="panel">
+                <div class="panel-body table-responsive">
+                    <table class="table">
+                        <thead class="thead">
+                            <tr>
+                                <th>Name</th>
+                                <th>Course</th>
+                                <th>Amount</th>
+                                <th>Payment Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (payment of payments; track payment.id) {
+
+                            <tr>
+                                <td>{{payment.user.name }}</td>
+                                <td>{{payment.course.title }}</td>
+                                <td>{{payment.amount/100 }}</td>
+                                <td>{{payment.payment_date }}</td>
+                            </tr>
+                        }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="container mt-5" dir="ltr">
+  <div class="card pro-tip-card">
+    <div class="row g-0">
+      <div class="col-md-12 d-flex justify-content-between card1 row flex-column justify-content-center p-4">
+
+        <div class="card-body col d-flex align-items-center">
+          <div class="avatar-xxl avatar-indicators avatar-online me-2 position-relative">
+            <img
+              [src]="user.image"
+              class="avatar-xxl rounded-circle border border-2"
+              alt="Image" 
+            />
+          </div>
+          <div class="ms-3">
+            <h5 class="card-title">Welcome back, {{user.name}}</h5>
+            <p class="card-text">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              {{user.email}}
+            </p>
+            <p class="card-text">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                {{user.phone}}
+            </p>   
+            <a routerLink="/edit-profile" class="card-link text-purple">Edit Profile</a>
+          </div>
+
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+   
+  <div class="py-6 mt-3">
+    <h3 class="mb-4 fw-bold"><i class="fa-solid fa-book-open"></i> All Courses</h3>
+    <div class="row">
+      @for(user_course of user_courses; track user_course.id){
+        <div class="col-xs-12 col-sm-4">
+          @for(teacher of user_teacher ; track teacher.id){
+            @if(teacher.id == user_course.instructor_id){
+            <div class="card resent-card">
+              <span class="badge ms-1 px-3 py-1 bg-success text-white" >Enrolled</span>
+                <a class="img-card"><img [src]="user_course.thumbnail"/></a>
+                <p class=" mt-2 d-flex ms-3 fs-5">{{user_course.title}}</p>
+                <div class="card-content">
+                  <div class="avatar avatar-xl  d-f self  d-flex align-items-center ">
+                    <img [src]="teacher.image" alt="Image" class="rounded-circle border-4 " />
+                    <p class="ms-2 mt-4">Mr.{{teacher.name}}</p>
+                  </div>
+
+                </div>
+                <div class="card-read-more d-flex justify-content-center">
+                    <a [routerLink]="['/course', user_course.id]" class="btn btn-link  ">
+                      Details
+                    </a>
+                </div>
+            </div>
+          }
+            }
+        </div>
+      }
+    </div>
+ 
+  </div>
+</div>

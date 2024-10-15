@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="container mt-5">
+    <h4 class="text-center fw-bold  text-warning">Learn about</h4>
+    <h3 class="text-center fw-bold  mb-3">Platform Teachers</h3>
+  </div>
+  <div class="container mt-5">
+    <div class="row">
+      @for (item of teachers; track item.id) {
+      <div [routerLink]="['/teacherprofile', item.id]" class="col-md-3 mb-4 ">
+        <div class="teacherLanding-card">
+          <img [src]="item.image" alt="Teacher Image" />
+          <div class="teacher-info">
+            <h5 class="fw-bold">{{ item.name }}</h5>
+            <p>{{ item.title }}</p>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+  <button routerLink="/teachers" class="button bbb-ttt mx-auto mt-3">
+    All Teachers
+    <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
+      <path
+        clip-rule="evenodd"
+        d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+        fill-rule="evenodd"
+      ></path>
+    </svg>
+  </button>
+</div>

@@ -1,0 +1,139 @@
+<nav class="navbar navbar-expand-sm navbar-light d-flex  fw-bold  position-relative" aria-label="Third navbar example" dir="ltr">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+    <div class="sm-navbar">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03"
+        aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <img src="favicon.ico" style="padding: 0;" alt="Ana Kafuo" width="85px" height="" />
+    </div>
+
+    <div class="collapse navbar-collapse  w-100 position-absolute top-0 start-0 " id="navbarsExample03">
+      <ul class="navbar-nav mx-auto my-4 mb-sm-0 fw-bold">
+        @if(role_id === 1 || role_id === 4){
+        <li class="nav-item">
+          <a class="nav-link fw-bold" routerLink="admin" routerLinkActive="active-route"  [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bold" routerLink="tests" routerLinkActive="active-route"  [routerLinkActiveOptions]="{ exact: true }">Exams</a>
+        </li>
+        }@else {
+        <li class="nav-item ">
+          <a class="nav-link fw-bold" routerLink="" routerLinkActive="active-route"  [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bold" routerLink="courses" routerLinkActive="active-route"  [routerLinkActiveOptions]="{ exact: true }">Courses</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bold" routerLink="teachers" routerLinkActive="active-route"  [routerLinkActiveOptions]="{ exact: true }">Teachers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bold" routerLink="tests" routerLinkActive="active-route"  [routerLinkActiveOptions]="{ exact: true }">Exams</a>
+        </li>
+        }
+      </ul>
+    </div>
+
+    <div class="d-flex align-items-center">
+      <label class="switch me-3">
+        <div class="theme-toggle">
+          <input class="checkbox" type="checkbox" id="theme-switch" #themeSwitch (click)="toggleTheme()" />
+          <span class="slider"></span>
+        </div>
+      </label>
+      @if (isloggedIn) {
+      <div class="dropdown ">
+        <div class="dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" aria-expanded="false">
+          <div class="me-3 position-relative x"><i class="fa fa-bell active-route fs-3"></i>
+            @if (count > 0 ) {
+            <span
+              class="position-absolute notify top-0 start-100 translate-middle text-center text-white   bg-success border border-light rounded-circle"
+              style="width: 25px;height: 25px;">{{count}}</span>
+            }
+
+          </div>
+        </div>
+        <ul class="dropdown-menu mt-2  text-center" style="width: 400px; margin-left: -220px;">
+          <li>
+            @for (notification of notifications; track $index) {
+            <div class="d-flex ">
+              @if(notification.data["userImage"] == null){
+                <div class="ms-1 me-2">
+                  <img src="default.png" alt="..." width="50px" height="50px" class="avatar-img rounded-circle" />
+                </div>
+              }@else{
+                <div class="ms-1  me-2">
+                  <img src="http://127.0.0.1:8000/images/users/{{notification.data['userImage']}}"   alt="..." width="50px"class="avatar-img rounded-circle" />
+                </div>
+              }
+
+              <div class="mt-4">
+                @if (notification.read_at == null) {
+
+                <small (click)="onRead(notification.id)" class=" text-primary"> {{notification.data['message'] }}
+                </small>
+                }@else {
+
+                <small class="">{{notification.data['message'] }} </small>
+                }
+
+                <div>
+                  <small class="notif-date">{{notification.data['created_at'] | date:'short' }} </small>
+                </div>
+              </div>
+            </div>
+
+            <hr />
+            }
+          </li>
+
+
+        </ul>
+      </div>
+      }
+
+
+      @if(!isloggedIn) {
+      <button routerLink="/signin" routerLinkActive="active-route" [routerLinkActiveOptions]="{ exact: true }"  class="bttn"
+        >
+      <i class="fa-regular fa-circle-user fa-lg fs-4 mx-1"></i>
+        Login</button>
+      <a
+        style="font-size: small"
+        routerLink="/studentSignup"
+        class="main-btn text-decoration-none ms-2"
+        >Register</a>
+      }@else {
+      <div class="dropdown">
+        <div class="dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="profile-username active-route fw-bold me-2">{{ name }}</span>
+          <div class="avatar-sm me-2">
+            @if(image == "http://127.0.0.1:8000/images/users"){
+            <img src="default.png" alt="..." width="50px" height="50px" class="avatar-img rounded-circle" />
+            }@else{
+            <img [src]="image" alt="..." width="50px" height="50px" class="avatar-img rounded-circle" />
+            }
+          </div>
+        </div>
+        <ul class="dropdown-menu text-center" style="width: 180px; margin-left: 0px;">
+          @if (role_id === 2) {
+          <li>
+            <a class="dropdown-item btn main-btn fw-bold text-white w-50 mx-auto rounded-5"
+              [routerLink]="['/teacherprofile', id]">View Profile</a>
+          </li>
+          }@else if (role_id === 3) {
+          <li>
+            <a class="dropdown-item btn main-btn fw-bold text-white  w-75 mx-auto rounded-5"
+              [routerLink]="['/profile', id]">View Profile</a>
+          </li>
+          }
+          <hr />
+          <li>
+            <a (click)="onLogout()" class="dropdown-item fw-bold fs-5"><i class="ms-3 fa fa-sign-out"></i>Logout</a>
+          </li>
+        </ul>
+      </div>
+      }
+    </div>
+  </div>
+</nav>

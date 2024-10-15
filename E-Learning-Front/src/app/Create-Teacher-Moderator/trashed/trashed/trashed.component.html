@@ -1,0 +1,55 @@
+<section class="intro mt-3" dir="ltr" >
+    <div class="bg-image h-100" >
+      <div class="mask d-flex align-items-center h-100">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 ">
+              <div class="card" style="border: none;">
+                <div class="card-body p-0">
+                  <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: calc(100vh - 210px) ;">
+                    <table class="table table-striped mb-0  " >
+                      <thead style="background-color: #0453ca !important">
+                        <tr class="text-center bg-danger">
+                          <th scope="col">Name </th>
+                          <th scope="col">Email </th>
+                          <th scope="col">national ID </th>
+                          <th scope="col">Gender</th>
+                          <th scope="col">Address</th>
+                          <th scope="col"> Phone</th>
+                          <th scope="col">Image</th>
+                          <th scope="col">Role</th>
+                          <th scope="col">Restore</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                       @for (item of organizer; track item.id) {
+                        <tr class="text-center">
+                          <td>{{item.name}}</td>
+                          <td>{{item.email}}</td>
+                          <td>{{item.national_id}} </td>
+                          <td>{{item.gender === 'Male' ? 'Male' : 'Female' }}</td>
+                          <td>{{ item.address ? item.address : 'No address' }}</td>
+                          <td>{{item.phone ? item.phone:'no phone '}}</td>
+                          <td>{{item.role_id === 2 ? 'Teacher ' : 'Moderator'}}</td>
+                          <td>
+                            <img [src]="item.image" alt="Image" width="70" height="70">
+                          </td>
+                          <td>
+                            <button (click)="restoreItem(item)" class="btn btn-link" title="Restore">
+                              <i class="fas fa-undo"></i>
+                            </button>
+                          </td>
+                         </tr>
+                       }
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+                <span routerLink="/allorganizer" class="btn main-btn rounded-5 ms-auto mt-1 custom-button w-25">Back</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

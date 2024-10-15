@@ -1,0 +1,85 @@
+@media (max-width: 576px) {
+    svg{
+        width: 4rem;
+        height: 4rem;
+    }
+  
+    .form-container {
+      padding: 15px;
+    }
+  
+    h2 {
+      font-size: 18px;
+    }
+  
+    .btn-primary {
+      font-size: 12px;
+      padding: 8px;
+    }
+  
+    .switch {
+      --width-of-switch: 2.8em;
+      --height-of-switch: 1.6em;
+      --size-of-icon: 1.2em;
+    }
+  }
+  
+  /* For medium devices (tablets, 577px to 768px) */
+  @media (min-width: 577px) and (max-width: 768px) {
+    .main-btn {
+      padding: 0.35rem 0.9rem;
+      font-size: 0.9em;
+    }
+  
+    .form-container {
+      padding: 25px;
+    }
+  
+    h2 {
+      font-size: 22px;
+    }
+  
+    .btn-primary {
+      font-size: 15px;
+    }
+  
+    .switch {
+      --width-of-switch: 3.2em;
+      --height-of-switch: 1.8em;
+      --size-of-icon: 1.3em;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .handel {
+      border-collapse: collapse;
+    }
+  
+    .main-btn {
+      padding: 0.4rem 1rem;
+      font-size: 1em;
+    }
+  
+    .form-container {
+      padding: 30px;
+    }
+  
+    h2 {
+      font-size: 24px;
+    }
+  
+    .btn-primary {
+      font-size: 16px;
+      padding: 12px;
+    }
+  
+    .switch {
+      --width-of-switch: 3.5em;
+      --height-of-switch: 2em;
+      --size-of-icon: 1.4em;
+    }
+  
+    .dropdown-toggle::after {
+      display: none;
+    }
+  }

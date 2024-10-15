@@ -1,0 +1,83 @@
+<div class="container mt-5" dir="ltr">
+  <div class="row justify-content-center">
+    <div class="col-md-4 text-center">
+      <div class="card p-4 shadow-lg profile-card animate__animated animate__fadeInLeft ">
+        <img [src]="teacherImage" alt="Profile Image"
+          class="rounded-circle img-fluid mb-3 profile-img mx-auto">
+        <h3>Eng\{{teacherName}}</h3>
+        <p class="text-muted">{{teacherTitle}}</p>
+
+        <p class="mb-1"><i class="bi bi-envelope"></i> {{teacherEmail}}</p>
+        <p><i class="bi bi-telephone"></i> {{teacherPhone}}</p>
+
+        <a href="https://wa.me/{{teacherPhone}}" target="_blank" class="btn main-btn custom-button btn-gradient contact-btn">
+          Contact Now
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <div class="card p-4 shadow-lg about-card animate__animated animate__fadeInRight">
+        <h4 class="section-title">About Me</h4>
+        <p>{{teacherDescription}}</p>
+
+        <div class="row text-center mt-4">
+          <div class="col-md-6">
+            <h5 class="animate__animated stats animate__bounce">{{coursesCount}}+</h5>
+            <p>Online Courses</p>
+          </div>
+          <div class="col-md-6">
+            <h5 class="animate__animated stats animate__bounce">{{courseStudentCount}}+</h5>
+            <p>Students Enrolled</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-between align-items-center h-50 d-inline">
+    <div class="row justify-content-md-center">
+      <div class="col-12 col-md-10 col-lg-8 col-xl-7">
+        <h3 class="fs-6 mb-2 text-secondary text-center text-uppercase">What We Do?</h3>
+        <h2 class="  fw-bold mb-4 mb-md-5 text-center">We are giving you perfect solutions with our proficient Courses.
+        </h2>
+        <hr class="w-50 mx-auto mb-1 mb-xl-9 border-dark-subtle">
+      </div>
+    </div>
+
+    <div class="row">
+      @for(course of teacherCourses;track course.id){
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <a [routerLink]="['/course', course[0].id]">
+          <div class="card bg-transparent border-primary rounded-0 h-100">
+            @if (course[0].thumbnail=="https://i.ytimg.com/img/no_thumbnail.jpg") {
+            <img class="card-img-top rounded-0" src="courseImage.png" alt="Course Image">
+
+            }@else {
+            <img class="card-img-top rounded-0" [src]="course[0].thumbnail" alt="Course Image">
+            }
+            <div class="card-body">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                class="bi bi-hdd text-primary mb-4" viewBox="0 0 16 16">
+                <path d="M4.5 11a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zM3 10.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
+                <path
+                  d="M16 11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V9.51c0-.418.105-.83.305-1.197l2.472-4.531A1.5 1.5 0 0 1 4.094 3h7.812a1.5 1.5 0 0 1 1.317.782l2.472 4.53c.2.368.305.78.305 1.198V11zM3.655 4.26 1.592 8.043C1.724 8.014 1.86 8 2 8h12c.14 0 .276.014.408.042L12.345 4.26a.5.5 0 0 0-.439-.26H4.094a.5.5 0 0 0-.44.26zM1 10v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1z" />
+              </svg>
+              <h3 class="h2 mb-4 name-card">{{course[0].title}}</h3>
+              <p class="mb-4 text-secondary">{{truncate.transform(course[0].description,200)}}</p>
+              <a href="#!" class="fw-bold text-decoration-none link-primary">
+                Learn More
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd"
+                    d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </a>
+      </div>
+    }
+    </div>
+  </div>
+
+</div>

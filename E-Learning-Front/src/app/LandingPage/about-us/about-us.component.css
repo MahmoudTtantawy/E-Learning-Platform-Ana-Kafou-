@@ -1,0 +1,37 @@
+section {
+    background-color: #2d2d2d;
+    height: 500px;
+    z-index: 100;
+  }
+  svg:first-of-type {
+    margin-bottom: -8vw;
+  }
+  svg:last-of-type {
+    margin-top: -4vw;
+  }
+  
+  @media (max-width: 460px) {
+    .custom-checkbox-container {
+      justify-content: center;
+    }
+    h3,
+    h6 {
+      padding-right: 1rem;
+    }
+    div {
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+  }
+  @media (min-width: 460px) {
+    div {
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
+  }
+  @media (max-width: 920px) {
+    .animated-img {
+      display: none;
+    }
+  }
+  
